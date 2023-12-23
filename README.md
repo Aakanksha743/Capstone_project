@@ -106,8 +106,25 @@ Norm macro recall :0.97647
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 ![image](https://github.com/Aakanksha743/Capstone_project/assets/151511734/866a4c2c-1961-4744-8ea3-68c29b7a2996)
 ![image](https://github.com/Aakanksha743/Capstone_project/assets/151511734/da4cd92a-7007-4c51-b0aa-0deead58a058)
+![image](https://github.com/Aakanksha743/Capstone_project/assets/151511734/af28f35e-6ee8-45af-afd5-2b5784ec07be)
+Details of the best model trained and their metrics
+![image](https://github.com/Aakanksha743/Capstone_project/assets/151511734/b9de50a4-5a93-4890-8d1b-02ab33e7f693)
+
+
 
 ![image](https://github.com/Aakanksha743/Capstone_project/assets/151511734/cb4b6ddf-71cb-47d9-82e4-8961af9abf8a)
+Response of the deployed model and Input query sample
+![image](https://github.com/Aakanksha743/Capstone_project/assets/151511734/5107cb05-c9ca-4eb8-b9b2-53c37937d089)
+Scoring script is generated when a model is created. It describes the input data that model will expect and passes it to the model for prediction and returns the results. Following command can be used to retreive the scoring script; best_run.download_file('outputs/scoring_file_v_1_0_0.py', 'scoreScript.py').
+
+We use the environment used by the best_run, the environment can be retreived by best_run.get_environment(). We can also download the yml file associated with the environment by using: best_run.download_file('outputs/conda_env_v_1_0_0.yml', 'envFile.yml')
+
+For deployment we used Azure Container Instances with cpu_cores = 1 and memory_gb = 1
+
+For Inference, the data passed to the model endpoint must be in JSON format. Following commands passes the data to the model as an HTTP POST request and records the response; response = requests.post(service.scoring_uri, test_sample, headers=headers)
+
+Screenshots below show a demonstration of sample data response from the deployed model
+
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
@@ -115,7 +132,7 @@ We use Logistric Regression algorithm from the SKLearn framework in conjuction w
 
 We have used random parameter sampling to sample over a discrete set of values. Random parameter sampling is great for discovery and getting hyperparameter combinations that you would not have guessed intuitively, although it often requires more time to execute.
 
-The parameter search space used for C is [1,2,3,4,5] and for max_iter is [80,100,120,150,170,200]
+The range of parameter search space used for C is [1,2,3,4,5] and for max_iter is [80,100,120,150,170,200]
 
 The benchmark metric (accuracy) is evaluated using hyperDrive early stopping policy. Execution of the experiment is stopped if conditions specified by the policy are met.
 
@@ -135,6 +152,9 @@ We could use different primary metric as sometimes accuracy alone doesn't repres
 Increasing max total runs to try a lot more combinations of hyperparameters, this would have an impact on cost too.
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+![image](https://github.com/Aakanksha743/Capstone_project/assets/151511734/9bee00dd-e6ea-4dc3-8bc6-5b3e2619700b)
+![image](https://github.com/Aakanksha743/Capstone_project/assets/151511734/03ac2491-18dd-4386-b3df-17f905891d64)
+
 
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
@@ -155,5 +175,13 @@ For Inference, the data passed to the model endpoint must be in JSON format. Fol
 
 Screenshots below show a demonstration of sample data response from the deployed model.
 https://youtu.be/dR1MUJddpGo
+
+
+Improvements for Hyperdrive
+
+
+Use Bayesian Parameter Sampling instead of Random; Bayesian sampling tries to intelligently pick the next sample of hyperparameters, based on how the previous samples performed, such that the new sample improves the reported primary metric.
+We could use different primary metric as sometimes accuracy alone doesn't represent true picture of the model performance.
+Increasing max total runs to try a lot more combinations of hyperparameters, this would have an impact on cost too
 ## Standout Suggestions
 *TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.

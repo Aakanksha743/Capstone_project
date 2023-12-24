@@ -84,15 +84,24 @@ I'm not afraid to tell my spouse about her/his incompetence
 Automated ML
 Configuration and settings used for the Automated ML experiment are described in the table below:
 
-Configuration|Description|Value
+Configuration | Description | Value
+----------------------------------
 experiment_timeout_minutes	|This is used as an exit criteria, it defines how long, in minutes, your experiment should continue to run |	20
-max_concurrent_iterations|	Represents the maximum number of iterations that would be executed in parallel|	5
-primary_metric|	The metric that Automated Machine Learning will optimize for model selection	| accuracy
-task |	The type of task to run. Values can be 'classification', 'regression', or 'forecasting' depending on the type of automated ML problem|	classification
-compute_target |	The compute target to run the experiment on|	trainCluster
-training_data|	Training data, contains both features and label columns|	ds
-label_column_name|	The name of the label column|	Class
-n_cross_validations|	No. of cross validations to perform|	5
+---------------------------------------------------------------------------------------------------------------------------------------------
+max_concurrent_iterations |	Represents the maximum number of iterations that would be executed in parallel |	5
+----------------------------------------------------------------------------------------------------------------------------------------------
+primary_metric |	The metric that Automated Machine Learning will optimize for model selection	| accuracy
+----------------------------------------------------------------------------------------------------------------------------------------------
+task |	The type of task to run. Values can be 'classification', 'regression', or 'forecasting' depending on the type of automated ML problem |	classification
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+compute_target |	The compute target to run the experiment on |	trainCluster
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+training_data |	Training data, contains both features and label columns |	ds
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+label_column_name |	The name of the label column |	Class
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+n_cross_validations |	No. of cross validations to perform |	5
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?

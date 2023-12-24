@@ -14,7 +14,9 @@ In this dataset, we predict divorce among couples by using the Divorce Predictor
 The dataset consists of 170 rows/records/examples and 54 features/attributes/columns. Attribute columns are labeled as Atr1 to Atr54, Class column predicts the divorce, a value of 1 means couple would end up in divorce
 ### Overview
 *TODO*: Explain about the data you are using and where you got it from.
-
+The dataset has been uploaded into this github repository and it can be accessed using the link as below
+https://raw.githubusercontent.com/Aakanksha743/Capstone_project/main/divorce.csv
+We used method from_delimited_files('webURL') of the TabularDatasetFactory Class to retreive data from the csv file (link provided above).
 ### Task
 *TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.
 As we have to predict either of two states (Divorce/No Divorce), this problem is a Classification one. The 54 features that we will use for prediction are described below. Each feature can have a value form the list [0, 1, 2, 3, 4].
@@ -82,15 +84,15 @@ I'm not afraid to tell my spouse about her/his incompetence
 Automated ML
 Configuration and settings used for the Automated ML experiment are described in the table below:
 
-Configuration	Description	Value
-experiment_timeout_minutes	This is used as an exit criteria, it defines how long, in minutes, your experiment should continue to run	20
-max_concurrent_iterations	Represents the maximum number of iterations that would be executed in parallel	5
-primary_metric	The metric that Automated Machine Learning will optimize for model selection	accuracy
-task	The type of task to run. Values can be 'classification', 'regression', or 'forecasting' depending on the type of automated ML problem	classification
-compute_target	The compute target to run the experiment on	trainCluster
-training_data	Training data, contains both features and label columns	ds
-label_column_name	The name of the label column	Class
-n_cross_validations	No. of cross validations to perform	5
+Configuration|Description|Value
+experiment_timeout_minutes	|This is used as an exit criteria, it defines how long, in minutes, your experiment should continue to run |	20
+max_concurrent_iterations|	Represents the maximum number of iterations that would be executed in parallel|	5
+primary_metric|	The metric that Automated Machine Learning will optimize for model selection	| accuracy
+task |	The type of task to run. Values can be 'classification', 'regression', or 'forecasting' depending on the type of automated ML problem|	classification
+compute_target |	The compute target to run the experiment on|	trainCluster
+training_data|	Training data, contains both features and label columns|	ds
+label_column_name|	The name of the label column|	Class
+n_cross_validations|	No. of cross validations to perform|	5
 
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?

@@ -14,6 +14,8 @@ In this dataset, we predict divorce among couples by using the Divorce Predictor
 The dataset consists of 170 rows/records/examples and 54 features/attributes/columns. Attribute columns are labeled as Atr1 to Atr54, Class column predicts the divorce, a value of 1 means couple would end up in divorce
 ### Overview
 *TODO*: Explain about the data you are using and where you got it from.
+|Method for data Ingestion|
+------------------------------
 The dataset has been uploaded into this github repository and it can be accessed using the link as below
 https://raw.githubusercontent.com/Aakanksha743/Capstone_project/main/divorce.csv
 We used method from_delimited_files('webURL') of the TabularDatasetFactory Class to retreive data from the csv file (link provided above).
@@ -104,6 +106,8 @@ n_cross_validations |	No. of cross validations to perform |	5
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Results
+|Top two models and their parameters|
+------------------------------------------
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
 In our experiment we found out StandardScalerWrapper ExtremeRandomTrees to be the best model based on the accuracy metric. The accuracy score for this models was 0.98824.
 
@@ -118,7 +122,8 @@ Norm macro recall :0.97647
 ![image](https://github.com/Aakanksha743/Capstone_project/assets/151511734/866a4c2c-1961-4744-8ea3-68c29b7a2996)
 ![image](https://github.com/Aakanksha743/Capstone_project/assets/151511734/da4cd92a-7007-4c51-b0aa-0deead58a058)
 ![image](https://github.com/Aakanksha743/Capstone_project/assets/151511734/af28f35e-6ee8-45af-afd5-2b5784ec07be)
-Details of the best model trained and their metrics
+|Details of the best model trained and their metrics|best model and their parameters
+-----------------------------------------------------------------------------------------------------
 ![image](https://github.com/Aakanksha743/Capstone_project/assets/151511734/b9de50a4-5a93-4890-8d1b-02ab33e7f693)
 
 
@@ -138,7 +143,9 @@ Screenshots below show a demonstration of sample data response from the deployed
 
 
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
+*TODO*: What kind of model did you choose for this experiment and why? 
+|Give an overview of the types of parameters and their ranges used for the hyperparameter search|
+------------------------------------------------------------------------------------------------
 We use Logistric Regression algorithm from the SKLearn framework in conjuction with hyperDrive for hyperparameter tuning. There are two hyperparamters for this experiment, C and max_iter. C is the inverse regularization strength whereas max_iter is the maximum iteration to converge for the SKLearn Logistic Regression.
 
 We have used random parameter sampling to sample over a discrete set of values. Random parameter sampling is great for discovery and getting hyperparameter combinations that you would not have guessed intuitively, although it often requires more time to execute.
